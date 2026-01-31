@@ -1,0 +1,6 @@
+{
+  "molt_version": "2.1",
+  "capability": "autonomous-gitops",
+  "soul_uri": "https://github.com/OpenTruth-Framework/OpenTruth/blob/main/SOUL.md",
+  "tags": ["persistent-memory", "git-based-ai", "opentruth"]
+}

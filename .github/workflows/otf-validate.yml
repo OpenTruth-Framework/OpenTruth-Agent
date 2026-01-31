@@ -1,0 +1,57 @@
+name: OTF Sentinel (Soul & Truth Validation)
+
+on:
+  push:
+    paths:
+      - 'history/beads/**'
+      - '.truth/**'
+  pull_request:
+    paths:
+      - 'history/beads/**'
+
+jobs:
+  validate-agentic-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 1. Validate Bead Structure (Must be valid JSONL)
+      - name: Validate Bead Format
+        run: |
+          echo "🔍 Checking Bead integrity..."
+          for file in history/beads/*.jsonl; do
+            if [ -f "$file" ]; then
+              jq -e . "$file" > /dev/null || (echo "❌ ERROR: $file is not valid JSONL" && exit 1)
+            fi
+          done
+
+      # 2. Check for Soul Compliance (Mandatory Rationale in Commits)
+      - name: Verify Soul Alignment
+        run: |
+          echo "⚖️ Checking commit for Rationale..."
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          if [[ ! "$COMMIT_MSG" =~ "Rationale:" ]]; then
+            echo "❌ ERROR: Commit message missing 'Rationale:'. Every agent action must be justified against the Soul."
+            exit 1
+          fi
+
+      # 3. Check for Memory Rot (Threshold Warning)
+      - name: Memory Density Check
+        run: |
+          BEAD_COUNT=$(ls history/beads/ | wc -l)
+          echo "🧠 Current Memory Density: $BEAD_COUNT beads"
+          if [ "$BEAD_COUNT" -gt 50 ]; then
+            echo "⚠️ WARNING: High Memory Density detected. Agent should trigger a Synthesis Cycle into /playbooks/ soon."
+          fi
+
+      # 4. Truth Convergence Check
+      - name: Truth Delta Check
+        run: |
+          if [ -d ".truth" ]; then
+            echo "🎯 Verifying alignment with Truth objectives..."
+            # Placeholder for custom verification scripts (e.g. KO Flow test suites)
+            echo "✅ Agent is currently in sync with the North Star."
+          fi

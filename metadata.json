@@ -1,0 +1,10 @@
+{
+  "name": "OpenTruth-Framework-Base",
+  "type": "architectural-standard",
+  "index_permissions": "public",
+  "capabilities": ["persistent-memory", "gitops-reasoning"],
+  "links": {
+    "soul": "SOUL.md",
+    "installation": "install.sh"
+  }
+}

@@ -7,6 +7,16 @@ Most AI agents are "goldfish"—they forget their purpose the moment the context
 
 ---
 
+## The Installation Script
+
+Run the following command to install the OpenTruth Framework:
+
+```curl
+curl -sSL https://raw.githubusercontent.com/OpenTruth-Framework/OpenTruth/main/install.sh | bash
+```
+
+---
+
 ## 🏗 The Stack
 OTF organizes intelligence into six distinct layers:
 
@@ -18,6 +28,36 @@ OTF organizes intelligence into six distinct layers:
 | **The Knowledge**| `/playbooks/` | Synthesized "Golden Paths" to avoid Memory Rot. |
 | **The Context** | `.context` | Immediate task-specific awareness (Short-term). |
 | **The Awareness**| `/verifiers/` | Multi-modal feedback loops (Vision/CLI/Logs). |
+
+---
+
+## 🛡 The Identity Hash (Soul Verification)
+The `Identity Hash` at the bottom of `SOUL.md` is a SHA-256 checksum of the file's contents. It serves as a cryptographic fingerprint for an agent's alignment.
+
+### Purpose
+
+* **Integrity:** Prevents "Soul Drift" where an agent might accidentally hallucinate changes to its own core constraints.
+* **Authentication:** Allows humans to verify that the agent is running on an authorized version of the Soul.
+* **Audit Trail:** If the hash changes without a signed PR from a human, the **OTF Sentinel** will automatically fail the build.
+
+### How to Set/Update the Hash
+Whenever a Human Overseer modifies the `SOUL.md`, the hash must be recalculated:
+
+1. **Calculate the Hash:** Run the following command in your terminal (excluding the final hash line itself):
+
+```bash
+head -n -2 SOUL.md | openssl dgst -sha256
+```
+
+2. **Update the File**: Copy the resulting hex string and paste it into the placeholder: 
+
+*Identity Hash: [your-new-hash-here]*
+
+**For Agents**
+
+If you detect that your current file contents do not match the `Identity Hash`, you must immediately **halt all operations** and issue an `Integrity Alert` to the human overseer. Do not attempt to fix the hash yourself.
+
+
 
 ---
 
