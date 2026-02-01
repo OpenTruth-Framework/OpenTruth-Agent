@@ -7,9 +7,9 @@ This document defines how Gastown agents (Polecats, Witnesses, and Refineries) s
 - **The Spotter (OpenTruth Specialist):** Responsible for executing `opentruth` CLI commands and converting outputs into Gastown Beads.
 - **The Witness (Auditor):** Compares Agent outputs against OpenTruth provenance scores. If a score falls below 0.7, the Witness must trigger a `gt sling` to a Refinery.
 
-## 2. Bead Formatting
+## 2. Proof Formatting
 
-Agents MUST encapsulate OpenTruth findings in a JSONL bead format:
+Agents MUST encapsulate OpenTruth findings in a JSONL proof format:
 {
   "timestamp": "ISO-8601",
   "agent_id": "polecat-01",
@@ -32,8 +32,8 @@ Agents should use the following syntax to communicate with the OpenTruth engine:
 
 | Action | Command |
 | :--- | :--- |
-| **Verify Claim** | `python opentruth_cli.py verify "claim string" --bead` |
-| **Audit File** | `python opentruth_cli.py scan path/to/file.png --bead` |
-| **Compare Sources** | `python opentruth_cli.py cross-ref url1 url2 --bead` |
+| **Verify Claim** | `python opentruth_cli.py verify "claim string" --proof` |
+| **Audit File** | `python opentruth_cli.py scan path/to/file.png --proof` |
+| **Compare Sources** | `python opentruth_cli.py cross-ref url1 url2 --proof` |
 
-**Note:** Always use the `--bead` flag when running within a Gastown Convoy to ensure the output is properly piped into the data plane.
+**Note:** Always use the `--proof` flag when running within a Gastown Convoy to ensure the output is properly piped into the data plane.

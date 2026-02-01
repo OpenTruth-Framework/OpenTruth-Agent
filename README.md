@@ -24,7 +24,7 @@ OTF organizes intelligence into six distinct layers:
 | :--- | :--- | :--- |
 | **The Soul** | `SOUL.md` | Core guiding principles and ethical constraints. |
 | **The Truth** | `/.truth/` | Programmatic "Definitions of Done" and North Star objectives. |
-| **The Memory** | `/history/beads/` | Git-tracked JSONL work history (The Ledger). |
+| **The Memory** | `/history/proofs/` | JSONL verification logs (The Ledger). |
 | **The Knowledge**| `/playbooks/` | Synthesized "Golden Paths" to avoid Memory Rot. |
 | **The Context** | `.context` | Immediate task-specific awareness (Short-term). |
 | **The Awareness**| `/verifiers/` | Multi-modal feedback loops (Vision/CLI/Logs). |
@@ -67,7 +67,7 @@ If you are an agent reading this:
 
 1. **Consult the Soul:** Read `SOUL.md` before taking any action. These are your hard constraints.
 2. **Identify the Truth:** Check `/.truth/` for your current objective. If the current state of the repo does not match the `.truth` files, you are "in a state of sin" and must iterate.
-3. **Log your Beads:** Every tool-call or significant thought must be committed to the `/history/beads/` directory.
+3. **Log your Proofs:** Every verification step or significant action must be committed to the `/history/proofs/` directory.
 4. **Synthesize:** Once a `.truth` goal is reached, propose a new "Playbook" in `/playbooks/` to optimize future convoys.
 
 ---

@@ -4,7 +4,7 @@
 echo "🌐 Initializing OpenTruth Framework..."
 
 # 1. Create standardized directory structure
-mkdir -p .truth history/beads playbooks verifiers .agent
+mkdir -p .truth history/proofs playbooks verifiers .agent
 
 # 2. Retrieve templates (Fallback to local if remote fails)
 RAW_URL="https://raw.githubusercontent.com/OpenTruth-Framework/OpenTruth/main/templates"
@@ -40,7 +40,7 @@ cat <<EOF > otf.json
   "layers": {
     "soul": "SOUL.md",
     "truth": ".truth/",
-    "memory": "history/beads/",
+    "memory": "history/proofs/",
     "knowledge": "playbooks/"
   }
 }
