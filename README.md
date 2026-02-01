@@ -23,11 +23,29 @@ OTF organizes intelligence into six distinct layers:
 | Layer | File/Folder | Function |
 | :--- | :--- | :--- |
 | **The Soul** | `SOUL.md` | Core guiding principles and ethical constraints. |
-| **The Truth** | `/.truth/` | Programmatic "Definitions of Done" and North Star objectives. |
-| **The Memory** | `/history/proofs/` | JSONL verification logs (The Ledger). |
+| **The Truth** | `/.truth/` | Local "Definition of Done" (specs/assets) inside a Rig. |
+| **The Memory** | `/history/proofs/` | Centralized JSONL verification logs (The Ledger). |
 | **The Knowledge**| `/playbooks/` | Synthesized "Golden Paths" to avoid Memory Rot. |
 | **The Context** | `.context` | Immediate task-specific awareness (Short-term). |
 | **The Awareness**| `/verifiers/` | Multi-modal feedback loops (Vision/CLI/Logs). |
+
+---
+
+## 🛠 Usage (CLI)
+
+OpenTruth is designed to be run by specialized agents (Gaugers & Spotters) against target repositories ("Rigs").
+
+```bash
+# Gauger Mode (Logic/Test Verification)
+./scripts/verify_rig.py --target /path/to/feature-rig --role gauger
+
+# Spotter Mode (Visual/Asset Verification)
+./scripts/verify_rig.py --target /path/to/feature-rig --role spotter
+```
+
+### Verification Roles
+*   **Gauger:** Verifies **Logic**. Checks for the existence of unit tests (`tests/`) and runs them (e.g., Godot CLI).
+*   **Spotter:** Verifies **Perception**. Checks for reference assets (`.truth/*.png`) and compares them against build artifacts.
 
 ---
 
