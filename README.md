@@ -82,6 +82,26 @@ Humans act as the "Pre-Frontal Cortex" of this system:
 
 ---
 
+## 🤖 Agentic Orchestration & Gastown Support
+
+OpenTruth is designed to be "Agent-Aware." It includes specialized configurations for integration into **Gastown** (and other multi-agent swarms).
+
+### For Automated Agents:
+
+If you are an AI agent or a Gastown **Polecat**, please refer to the following instructions to initialize your verification protocols:
+
+* **[Orchestration Guide](./orchestration/gastown-integration.md):** How to map OpenTruth modules to agent roles.
+* **[Bead Schema](./orchestration/gastown-integration.md#2-bead-formatting):** Standardized JSONL output for git-backed data planes.
+* **[Agent Prompts](./orchestration/agent-prompts.md):** Pre-configured system instructions for LLMs.
+
+### For Human Architects:
+To run OpenTruth within a Gastown "Town":
+1. Add `opentruth` to your `Formula.toml`.
+2. Map `scripts/ot_verify.py` to your `Refinery` hooks.
+3. Use the `orchestration/` templates to define your agent personas.
+
+---
+
 ## 🚀 Vision: Towards General Intelligence
 
 OTF is built on the belief that AGI won't be a single model, but a **system of records.** By decoupling the Brain (LLM) from the Memory (Git), we create an intelligence that can be audited, reverted, and improved across generations of models.
